@@ -1,0 +1,93 @@
+body {
+    font-family: 'Exo 2', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(90deg, #1a1a2e, #16213e);
+    color: #e0e0e0;
+}
+
+header {
+    background: linear-gradient(135deg, #2a2a3a 0%, #1a1a2e 100%);
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    z-index: 20;
+}
+
+nav {
+    background: #0a2540;
+    padding: 10px;
+    margin-top: 250px;
+    z-index: 15;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #7f00ff;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    background: #0a2540;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    z-index: 5;
+    margin-top: 20px;
+}
+
+a.button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: 2px solid #0a2540;
+  border-radius: 8px;
+  background-color: rgba(10, 37, 64, 0.8);
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+a.button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    font-size: 1.1em;
+}
+
+a:not([href*="visited"]) {
+    color: #7f00ff;
+}
+
+a[href*="spacex.com"] {
+    font-weight: bold;
+}
+
+header > h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+main article p {
+    line-height: 1.6;
+}
