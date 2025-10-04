@@ -4,6 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RocketLaunch Tech - Зворотній зв’язок</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        header {
+            position: relative;
+            z-index: 20;
+        }
+
+        nav {
+            margin-top: 0;
+        }
+
+        form {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: flex-start;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        fieldset {
+            display: flex;
+            flex-flow: column nowrap;
+            border: 1px solid #ffffff;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        input[type="text"], input[type="email"], input[type="number"], select, textarea {
+            flex-grow: 1;
+            flex-shrink: 1;
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        textarea {
+            height: 100px;
+            resize: none;
+            align-self: stretch;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-flow: row wrap;
+            gap: 10px;
+        }
+
+        label[for="consent"] {
+            order: 1;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -46,15 +100,17 @@
                         <option value="professional">Професійна</option>
                     </select>
 
-                    <p><label>Інтереси (виберіть один або кілька):</label></p>
-                    <input type="checkbox" id="scientist" name="interests" value="scientist">
-                    <label for="scientist" style="display: inline;">Науковець</label><br>
-                    <input type="checkbox" id="investor" name="interests" value="investor">
-                    <label for="investor" style="display: inline;">Інвестор</label><br>
-                    <input type="checkbox" id="promoter" name="interests" value="promoter">
-                    <label for="promoter" style="display: inline;">Промоутер</label><br>
-                    <input type="checkbox" id="official" name="interests" value="official">
-                    <label for="official" style="display: inline;">Держслужбовець</label>
+                    <label>Інтереси (виберіть один або кілька):</label>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="scientist" name="interests" value="scientist">
+                        <label for="scientist" style="display: inline;">Науковець</label><br>
+                        <input type="checkbox" id="investor" name="interests" value="investor">
+                        <label for="investor" style="display: inline;">Інвестор</label><br>
+                        <input type="checkbox" id="promoter" name="interests" value="promoter">
+                        <label for="promoter" style="display: inline;">Промоутер</label><br>
+                        <input type="checkbox" id="official" name="interests" value="official">
+                        <label for="official" style="display: inline;">Держслужбовець</label>
+                    </div>
                 </fieldset>
 
                 <label for="purpose">Мета зворотного зв’язку:</label>

@@ -4,6 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RocketLaunch Tech - Проєкти</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 9;
+        }
+
+        article.our_projects {
+            margin-top: 320px;
+        }
+
+        section.project {
+            border: 2px solid #0a2540;
+            border-bottom: 4px double #0a2540;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        section.project h3 {
+            font-weight: 700;
+            font-size: 1.5em;
+            font-style: italic;
+        }
+
+        section.project img {
+            max-width: 100%;
+            transition: filter 0.5s ease;
+        }
+
+        section.project img:hover {
+            filter: grayscale(100%);
+            animation: grayscale 0.5s ease;
+        }
+
+        @keyframes grayscale {
+            from { filter: grayscale(0%); }
+            to { filter: grayscale(100%); }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -20,12 +69,12 @@
     </nav>
 
     <main>
-        <article>
+        <article class="our_projects">
             <h2>Наші проєкти</h2>
             <p>Нижче представлено список наших ключових проєктів у сфері космічних запусків.</p>
             <p>Кожен проєкт демонструє наші інноваційні підходи до розробки ракетних технологій.</p>
 
-            <section>
+            <section class="project">
                 <h3>Falcon 9</h3>
                 <img src="falcon9.png" alt="Ракета Falcon 9" width="500">
                 <p><b>Країна:</b> США</p>
@@ -39,7 +88,7 @@
                 </ul>
             </section>
 
-            <section>
+            <section class="project">
                 <h3>Starship</h3>
                 <img src="starship.png" alt="Ракета Starship" width="250">
                 <p><b>Країна:</b> США</p>
@@ -53,7 +102,7 @@
                 </ul>
             </section>
 
-            <section>
+            <section class="project">
                 <h3>Ariane 6</h3>
                 <img src="ariane6.png" alt="Ракета Ariane 6" width="500">
                 <p><b>Країна:</b> Європа (Франція)</p>
@@ -67,7 +116,7 @@
                 </ul>
             </section>
 
-            <section>
+            <section class="project">
                 <h3>Electron</h3>
                 <img src="electron.png" alt="Ракета Electron" width="250">
                 <p><b>Країна:</b> Нова Зеландія/США</p>
@@ -81,7 +130,7 @@
                 </ul>
             </section>
 
-            <section>
+            <section class="project">
                 <h3>H3</h3>
                 <img src="h3.png" alt="Ракета H3" width="250">
                 <p><b>Країна:</b> Японія</p>
@@ -95,7 +144,7 @@
                 </ul>
             </section>
 
-            <section>
+            <section class="project">
                 <h3>Zenit-3SL</h3>
                 <img src="zenit-3sl.png" alt="Ракета Zenit-3SL" width="250">
                 <p><b>Країна:</b> Україна/міжнародна співпраця</p>
