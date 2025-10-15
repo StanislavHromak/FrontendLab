@@ -29,10 +29,12 @@
             transform: translateX(2%);
         }
 
-        footer::selection {
+        footer p::selection,
+        footer h3::selection {
             background-color: hsl(200, 100%, 60%);
             color: #000000;
-            text-decoration: underline;
+            text-shadow: 0 0 2px #000;
+            transition: background-color 2s ease, color 2s ease, text-shadow 2s ease;
         }
 
         .mission-content {

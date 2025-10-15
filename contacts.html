@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,12 +17,27 @@
             width: 100%;
         }
 
+        article {
+            text-align: center;
+        }
+
+        article h2 {
+            margin-bottom: 10px;
+        }
+
+        article p {
+            margin-bottom: 30px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         form {
             display: flex;
             flex-flow: column nowrap;
             justify-content: center;
             align-items: flex-start;
-            max-width: 500px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
@@ -32,6 +47,8 @@
             border: 1px solid #ffffff;
             padding: 15px;
             background: rgba(255, 255, 255, 0.1);
+            margin-bottom: 15px;
+            width: 100%;
         }
 
         input[type="text"], input[type="email"], input[type="number"], select, textarea {
@@ -55,8 +72,17 @@
             gap: 10px;
         }
 
-        label[for="consent"] {
-            order: 1;
+        .button-row {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .button-row button, .button-row a {
+            flex: 1;
+            max-width: 200px;
         }
     </style>
 </head>
@@ -114,27 +140,32 @@
                     </div>
                 </fieldset>
 
-                <label for="purpose">Мета зворотного зв’язку:</label>
-                <select id="purpose" name="purpose" required>
-                    <option value="">Виберіть мету</option>
-                    <option value="collaboration">Співпраця</option>
-                    <option value="complaint">Скарга на порушення права власності</option>
-                    <option value="suggestion">Пропозиція</option>
-                    <option value="error">Наявність помилки</option>
-                </select>
+                <fieldset>
+                    <legend>Мета зворотного зв’язку</legend>
 
-                <label for="details">Детально:</label>
-                <textarea id="details" name="details" maxlength="500" placeholder="Введіть ваш коментар (максимум 500 символів)" required></textarea>
+                    <label for="purpose">Оберіть мету:</label>
+                    <select id="purpose" name="purpose" required>
+                        <option value="">Виберіть мету</option>
+                        <option value="collaboration">Співпраця</option>
+                        <option value="complaint">Скарга на порушення права власності</option>
+                        <option value="suggestion">Пропозиція</option>
+                        <option value="error">Наявність помилки</option>
+                    </select>
+
+                    <label for="comment">Докладніше:</label>
+                    <textarea id="comment" name="comment" maxlength="500" placeholder="Введіть ваш коментар (максимум 500 символів)" required></textarea>
+                </fieldset>
 
                 <label for="consent">
                     <input type="checkbox" id="consent" name="consent" required>
                     Я даю згоду на обробку моїх персональних даних.
                 </label>
 
-                <p><button type="submit" class="button">Відправити</button></p>
+                <div class="button-row">
+                    <a href="#submit" class="button">Відправити</a>
+                    <a href="main.html" class="button">Повернутися на головну</a>
+                </div>
             </form>
-
-            <a href="main.html" class="button">Повернутися на Головну</a>
         </article>
     </main>
 
