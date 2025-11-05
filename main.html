@@ -7,13 +7,6 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        header {
-            position: absolute;
-            top: 0;
-            width: 100%;
-            z-index: 10;
-        }
-
         .mission {
             margin: 0;
             padding: 30px;
@@ -49,10 +42,13 @@
         }
     </style>
 </head>
-<body>
+<body class="main-page">
     <header>
-        <h1>RocketLaunch Tech</h1>
-        <img src="logo-placeholder.png" alt="Логотип RocketLaunch Tech" width="200">
+        <div class="branding">
+            <img src="logo-placeholder.png" alt="Логотип RocketLaunch Tech" width="200">
+            <h1>RocketLaunch Tech</h1>
+        </div>
+        <h2 id="slogan"></h2>
     </header>
 
     <nav>
@@ -81,73 +77,72 @@
         </article>
 
         <article>
-            <h2>Інформація про засновників</h2>
-            <table id="founders-table" border="1">
-                <caption>Засновники RocketLaunch Tech</caption>
-                <thead>
-                    <tr>
-                        <th>Ім'я</th>
-                        <th>Посада</th>
-                        <th>Досвід (роки)</th>
-                        <th>Спеціалізація</th>
-                        <th>Контакт</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td rowspan="2">Іван Петренко</td>
-                        <td>CEO</td>
-                        <td>15</td>
-                        <td>Ракетобудування</td>
-                        <td>ivan@rocketlaunch.tech</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">Додаткові ролі: Стратегічне планування</td>
-                        <td>Аерокосмічна інженерія</td>
-                        <td>+380-123-4567</td>
-                    </tr>
-                    <tr>
-                        <td>Марія Сидоренко</td>
-                        <td>CTO</td>
-                        <td>12</td>
-                        <td>Програмне забезпечення для космічних систем</td>
-                        <td>maria@rocketlaunch.tech</td>
-                    </tr>
-                    <tr>
-                        <td>Олексій Коваленко</td>
-                        <td>CFO</td>
-                        <td>10</td>
-                        <td>Фінанси в tech-стартапах</td>
-                        <td>oleksiy@rocketlaunch.tech</td>
-                    </tr>
-                    <tr>
-                        <td>Анна Бондаренко</td>
-                        <td>Головний інженер</td>
-                        <td>8</td>
-                        <td>Дизайн ракет</td>
-                        <td>anna@rocketlaunch.tech</td>
-                    </tr>
-                    <tr>
-                        <td>Сергій Іванов</td>
-                        <td>Маркетолог</td>
-                        <td>7</td>
-                        <td>Просування космічних технологій</td>
-                        <td>sergiy@rocketlaunch.tech</td>
-                    </tr>
-                    <tr>
-                        <td>Ольга Шевченко</td>
-                        <td>HR-менеджер</td>
-                        <td>9</td>
-                        <td>Рекрутинг в аерокосмічній галузі</td>
-                        <td>olga@rocketlaunch.tech</td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="5">Всього засновників: 6</td>
-                    </tr>
-                </tfoot>
-            </table>
+          <h2>Інформація про засновника та керівництво</h2>
+
+            <section id="founder">
+               <h3>Засновник компанії</h3>
+               <img
+                 src="founder.jpeg"
+                   alt="Фото засновника Івана Петренка"
+                  id="founder-photo"
+                  class="founder-photo">
+               <p><strong>Скрудж МакДак</strong> — засновник та генеральний директор RocketLaunch Tech.</p>
+            </section>
+
+          <table id="founders-table" border="1">
+            <caption>Керівництво компанії RocketLaunch Tech</caption>
+            <thead>
+              <tr>
+                <th>Ім'я</th>
+                <th>Посада</th>
+                <th>Досвід (роки)</th>
+                <th>Спеціалізація</th>
+                <th>Контакт</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Марія Сидоренко</td>
+                <td>CTO</td>
+                <td>12</td>
+                <td>Програмне забезпечення для космічних систем</td>
+                <td>maria@rocketlaunch.tech</td>
+              </tr>
+              <tr>
+                <td>Олексій Коваленко</td>
+                <td>CFO</td>
+                <td>10</td>
+                <td>Фінанси в tech-стартапах</td>
+                <td>oleksiy@rocketlaunch.tech</td>
+              </tr>
+              <tr>
+                <td>Анна Бондаренко</td>
+                <td>Головний інженер</td>
+                <td>8</td>
+                <td>Дизайн ракет</td>
+                <td>anna@rocketlaunch.tech</td>
+              </tr>
+              <tr>
+                <td>Сергій Іванов</td>
+                <td>Маркетолог</td>
+                <td>7</td>
+                <td>Просування космічних технологій</td>
+                <td>sergiy@rocketlaunch.tech</td>
+              </tr>
+              <tr>
+                <td>Ольга Шевченко</td>
+                <td>HR-менеджер</td>
+                <td>9</td>
+                <td>Рекрутинг в аерокосмічній галузі</td>
+                <td>olga@rocketlaunch.tech</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="5">Всього керівників: 5</td>
+              </tr>
+            </tfoot>
+          </table>
         </article>
 
         <p>Ми пишаємося нашими досягненнями в <span style="color: darkviolet;">
@@ -167,5 +162,6 @@
         <p>&copy; 2025 RocketLaunch Tech. Всі права захищено.</p>
     </footer>
 
+<script src="scripts.js"></script>
 </body>
 </html>

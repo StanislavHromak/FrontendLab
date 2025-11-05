@@ -70,10 +70,12 @@
         }
     </style>
 </head>
-<body>
+<body class="projects-page">
     <header>
-        <h1>RocketLaunch Tech</h1>
-        <img src="logo-placeholder.png" alt="Логотип RocketLaunch Tech" width="200">
+        <div class="branding">
+            <img src="logo-placeholder.png" alt="Логотип RocketLaunch Tech" width="200">
+            <h1>RocketLaunch Tech</h1>
+        </div>
     </header>
 
     <nav>
@@ -85,6 +87,20 @@
     </nav>
 
     <main>
+        <div class="carousel-viewport">
+           <div class="carousel-track">
+              <div class="carousel-item"><img src="falcon9.png" alt="Falcon 9"></div>
+              <div class="carousel-item"><img src="starship.png" alt="Starship"></div>
+              <div class="carousel-item"><img src="ariane6.png" alt="Ariane 6"></div>
+              <div class="carousel-item"><img src="electron.png" alt="Electron"></div>
+              <div class="carousel-item"><img src="h3.png" alt="H3"></div>
+              <div class="carousel-item"><img src="zenit-3sl.png" alt="Zenit-3SL"></div>
+           </div>
+
+          <button class="carousel-btn prev">&#10094;</button>
+          <button class="carousel-btn next">&#10095;</button>
+        </div>
+
         <article class="our_projects">
             <div class="projects-header">
                 <h2>Наші проєкти</h2>
@@ -185,5 +201,7 @@
     <footer>
         <p>&copy; 2025 RocketLaunch Tech. Всі права захищено.</p>
     </footer>
+
+<script src="scripts.js"></script>
 </body>
 </html>
