@@ -1,6 +1,6 @@
 // 1. Виведення девізу компанії
 document.addEventListener("DOMContentLoaded", function() {
-  const slogan = "Розширюємо горизонти космосу!";
+  const slogan = "Від Землі — до зірок!";
   const sloganElement = document.getElementById("slogan");
   let index = 0;
 
@@ -12,9 +12,12 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-  // Стиль
+  const baseFontWeight = 500;
+  const requiredFactor = 1.2;
+  const calculatedFontWeight = baseFontWeight * requiredFactor;
+
   sloganElement.style.color = "darkred";
-  sloganElement.style.fontWeight = "700";
+  sloganElement.style.fontWeight = calculatedFontWeight.toString();
   sloganElement.style.fontSize = "1.8em";
 
   typeWriter();
@@ -126,33 +129,77 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// 4. Модальне вікно із загадкою ---
+// 4. Модальне вікно із загадкою (Виправлено на кастомний popup)
 document.addEventListener("DOMContentLoaded", () => {
   const founderPhoto = document.getElementById("founder-photo");
+  // Отримання посилань на нові елементи
+  const modalOverlay = document.getElementById("riddle-modal-overlay");
+  const closeBtn = document.querySelector("#riddle-modal .close-btn");
+  const answerInput = document.getElementById("riddle-answer-input");
+  const checkBtn = document.getElementById("riddle-check-btn");
+  const feedbackText = document.getElementById("riddle-feedback");
 
-  founderPhoto.addEventListener("mouseenter", () => {
-    alert("🧩 Загадка від Івана Петренка:");
-    const answer = prompt("Я вириваюсь із Землі, щоб не впасти назад. Мене створюють люди, щоб дістатись зірок. Хто я?");
+  const correct_answer = "ракета";
 
-    if (answer === null) {
-      alert("Ви скасували відповідь. Може, наступного разу 😉");
-      return;
-    }
+  // Функція для відкриття модального вікна
+  function openModal() {
+    // Скидання попереднього стану при відкритті
+    answerInput.value = "";
+    feedbackText.textContent = "";
+    feedbackText.classList.remove("correct", "incorrect");
+    checkBtn.disabled = false; // Активувати кнопку перевірки
+    modalOverlay.style.display = "flex";
+  }
 
-    if (answer.trim().toLowerCase() === "ракета") {
-      alert("✅ Правильно!");
+  // Функція для закриття модального вікна
+  function closeModal() {
+    modalOverlay.style.display = "none";
+  }
+
+  // Функція для перевірки відповіді
+  function checkAnswer() {
+    const userAnswer = answerInput.value.trim().toLowerCase();
+
+    if (userAnswer === correct_answer) {
+      feedbackText.textContent = "✅ Правильно! Дякуємо за відповідь! 🚀";
+      feedbackText.classList.remove("incorrect");
+      feedbackText.classList.add("correct");
+      checkBtn.disabled = true;
+      // Закриття вікна через 2 секунди після правильної відповіді
+      setTimeout(closeModal, 2000);
     } else {
-      const tryAgain = confirm("❌ Неправильно. Хочете спробувати ще раз?");
-      if (tryAgain) {
-        // якщо користувач хоче спробувати ще — запустимо загадку знову
-        founderPhoto.dispatchEvent(new Event("mouseenter"));
-      } else {
-        alert("Дякуємо за спробу! 🚀");
-      }
+      feedbackText.textContent = "❌ Неправильно. Спробуйте ще раз.";
+      feedbackText.classList.remove("correct");
+      feedbackText.classList.add("incorrect");
     }
-  });
-});
+  }
 
+  // Обробники подій
+  if (founderPhoto && modalOverlay) {
+    // 1. Відкриття вікна при наведенні
+    founderPhoto.addEventListener("mouseenter", openModal);
+
+    // 2. Закриття при кліку на кнопку закриття
+    closeBtn.addEventListener("click", closeModal);
+
+    // 3. Закриття при кліку на оверлей
+    modalOverlay.addEventListener("click", (e) => {
+      if (e.target === modalOverlay) {
+        closeModal();
+      }
+    });
+
+    // 4. Перевірка відповіді при кліку на кнопку
+    checkBtn.addEventListener("click", checkAnswer);
+
+    // 5. Перевірка відповіді при натисканні Enter у полі вводу
+    answerInput.addEventListener("keypress", (e) => {
+      if (e.key === 'Enter' && !checkBtn.disabled) {
+        checkAnswer();
+      }
+    });
+  }
+});
 
 // --- 5. Автоматичне перемикання теми ---
 function applyThemeByTime() {
