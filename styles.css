@@ -2,7 +2,7 @@ body {
     font-family: 'Exo 2', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(90deg, #1a1a2e, #16213e);
+    background-color: hsl(234, 38%, 15%);
     color: #e0e0e0;
 }
 
@@ -149,14 +149,14 @@ a:link {
     color: #cc5500;
 }
 
-/* --- 2. Карусель --- */
+/* 2. Карусель */
 .carousel-viewport {
   position: relative;
   width: 100%;
   max-width: 1200px;
   margin: 150px auto 40px;
   overflow: hidden;
-  height: 20vw; /* висота = 20% ширини вікна */
+  height: 20vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -169,7 +169,7 @@ a:link {
 }
 
 .carousel-item {
-  flex: 0 0 calc(33.333% - 20px); /* 3 зображення одночасно */
+  flex: 0 0 calc(33.333% - 20px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -221,7 +221,7 @@ a:link {
   transform: scale(1.05);
 }
 
-/* --- 4. Кастомне модальне вікно (Popup) --- */
+/* Модальне вікно*/
 #riddle-modal-overlay {
     position: fixed;
     top: 0;
@@ -308,7 +308,6 @@ a:link {
 
 /* 5. */
 .dark-mode {
-  background: #0b0b1a;
   color: #eaeaea;
 }
 

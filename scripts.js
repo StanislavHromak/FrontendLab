@@ -76,7 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
     startAuto();
   }
 
-  // Паузи при наведенні
   viewport.addEventListener('mouseenter', stopAuto);
   viewport.addEventListener('mouseleave', startAuto);
   prevBtn.addEventListener('mouseenter', stopAuto);
@@ -129,10 +128,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// 4. Модальне вікно із загадкою (Виправлено на кастомний popup)
+// 4. Модальне вікно із загадкою
 document.addEventListener("DOMContentLoaded", () => {
   const founderPhoto = document.getElementById("founder-photo");
-  // Отримання посилань на нові елементи
   const modalOverlay = document.getElementById("riddle-modal-overlay");
   const closeBtn = document.querySelector("#riddle-modal .close-btn");
   const answerInput = document.getElementById("riddle-answer-input");
@@ -141,34 +139,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const correct_answer = "ракета";
 
-  // Функція для відкриття модального вікна
   function openModal() {
-    // Скидання попереднього стану при відкритті
     answerInput.value = "";
     feedbackText.textContent = "";
     feedbackText.classList.remove("correct", "incorrect");
-    checkBtn.disabled = false; // Активувати кнопку перевірки
+    checkBtn.disabled = false;
     modalOverlay.style.display = "flex";
   }
 
-  // Функція для закриття модального вікна
   function closeModal() {
     modalOverlay.style.display = "none";
   }
 
-  // Функція для перевірки відповіді
   function checkAnswer() {
     const userAnswer = answerInput.value.trim().toLowerCase();
 
     if (userAnswer === correct_answer) {
-      feedbackText.textContent = "✅ Правильно! Дякуємо за відповідь! 🚀";
+      feedbackText.textContent = "Правильно! Дякуємо за відповідь!";
       feedbackText.classList.remove("incorrect");
       feedbackText.classList.add("correct");
       checkBtn.disabled = true;
-      // Закриття вікна через 2 секунди після правильної відповіді
       setTimeout(closeModal, 2000);
     } else {
-      feedbackText.textContent = "❌ Неправильно. Спробуйте ще раз.";
+      feedbackText.textContent = "Неправильно. Спробуйте ще раз.";
       feedbackText.classList.remove("correct");
       feedbackText.classList.add("incorrect");
     }
@@ -176,23 +169,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Обробники подій
   if (founderPhoto && modalOverlay) {
-    // 1. Відкриття вікна при наведенні
     founderPhoto.addEventListener("mouseenter", openModal);
-
-    // 2. Закриття при кліку на кнопку закриття
     closeBtn.addEventListener("click", closeModal);
 
-    // 3. Закриття при кліку на оверлей
     modalOverlay.addEventListener("click", (e) => {
       if (e.target === modalOverlay) {
         closeModal();
       }
     });
 
-    // 4. Перевірка відповіді при кліку на кнопку
     checkBtn.addEventListener("click", checkAnswer);
 
-    // 5. Перевірка відповіді при натисканні Enter у полі вводу
     answerInput.addEventListener("keypress", (e) => {
       if (e.key === 'Enter' && !checkBtn.disabled) {
         checkAnswer();
@@ -201,13 +188,23 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// --- 5. Автоматичне перемикання теми ---
+// 5. Автоматичне перемикання теми
 function applyThemeByTime() {
-  const hour = new Date().getHours();
-  if (hour >= 20 || hour < 13) {
-    document.body.classList.add("dark-mode");
-  } else {
-    document.body.classList.remove("dark-mode");
-  }
+    const hour = new Date().getHours();
+    const isNightTime = (hour >= 21 || hour < 11);
+
+    const HUE = 234;
+    const SATURATION = 38;
+    const BASE_LIGHTNESS = 15;
+
+    if (isNightTime) {
+        const newLightness = BASE_LIGHTNESS * (1 - 0.40);
+        document.body.style.backgroundColor = `hsl(${HUE}, ${SATURATION}%, ${newLightness}%)`;
+        document.body.classList.add("dark-mode");
+
+    } else {
+        document.body.classList.remove("dark-mode");
+        document.body.style.backgroundColor = '';
+    }
 }
 window.addEventListener("DOMContentLoaded", applyThemeByTime);
